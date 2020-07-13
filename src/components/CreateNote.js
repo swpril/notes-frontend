@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Typography, Grid, TextField, Paper, Button, Snackbar } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import { Formik, Form } from 'formik';
+import { BeatLoader } from 'react-spinners';
 import * as Yup from 'yup';
 import axios from 'axios';
 import NavBar from './NavBar';
@@ -22,6 +23,7 @@ const CreateNote = () => {
     const [open, setOpen] = useState(false);
     const [success, setSuccess] = useState(false);
     const [url, setUrl] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -52,6 +54,7 @@ const CreateNote = () => {
                                 }}
                                 validationSchema={Validation}
                                 onSubmit={async (values) => {
+                                    setLoading(true);
                                     try {
                                         const response = await axios.post('https://notify-backend-swpril.herokuapp.com/note/new', values);
                                         setSuccess(true);
@@ -62,6 +65,7 @@ const CreateNote = () => {
                                         setUrl(null);
                                         setOpen(true);
                                     }
+                                    setLoading(false);
                                 }}
                             >
                                 {({ values,
@@ -106,9 +110,11 @@ const CreateNote = () => {
                                         <Grid item className={classes.buttonContainer}>
                                             <Button
                                                 type='submit'
+                                                disabled={loading}
                                                 variant='contained'
                                                 className={classes.button}
-                                            >Submit</Button>
+                                                style={{top:'50%'}}
+                                            >{loading ? (<BeatLoader color={'#fff'} />) : <span>Submit</span>}</Button>
                                         </Grid>
                                     </Form>
                                 }
@@ -116,7 +122,7 @@ const CreateNote = () => {
                         </Paper>
                     </Grid>
                 </Grid>
-                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
                     {success ? (<Alert onClose={handleClose} severity='success'>
                         Your Unique URL is https://notify-front-swpril.netlify.app/{url}
                     </Alert>):(<Alert severity='error' onClose={handleClose}>Some Error Occured!</Alert>)}

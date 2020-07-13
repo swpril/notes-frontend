@@ -41,7 +41,7 @@ const GetNote = (props) => {
         )
     }
     return (
-        <div className={classes.root}>
+        <div>
             <NavBar />
             <div style={{ marginTop: '64px' }}>
                 <Grid container direction='row' justify='center' alignItems='center' >
