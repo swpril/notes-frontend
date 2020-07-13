@@ -6,7 +6,7 @@ import NavBar from './NavBar';
 import useStyles from '../Styles/GetNoteStyles';
 import Spinner from '../Spinner/Spinner';
 
-const GetNote = () => {
+const GetNote = (props) => {
     const { id } = useParams();
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
