@@ -9,16 +9,33 @@ import Spinner from '../Spinner/Spinner';
 const GetNote = () => {
     const { id } = useParams();
     const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
     useEffect(() => {
         const getNote = async () => {
-            const response = await axios.get(`http://localhost:8000/note/${id}`);
-            setData(response.data);
+            try {
+                const response = await axios.get(`http://localhost:8000/note/${id}`);
+                setData(response.data);
+            } catch (e) {
+                setError('No Note found')
+            }
+
         };
         getNote();
     }, [id]);
 
     const classes = useStyles();
-    if (!data) {
+    if (error) {
+
+        return (
+            <div>
+                <NavBar />
+                <div style={{ marginTop: '64px' }}>
+                    <Typography className={classes.name}>{error}</Typography>
+                </div>
+            </div>
+        )
+    }
+    else if (!data) {
         return (
             <Spinner />
         )
@@ -33,7 +50,7 @@ const GetNote = () => {
                     </Grid>
                     <Grid item xs={12} className={classes.noteGrid}>
                         <Typography className={classes.notes}>Your extremely important information is here:</Typography>
-                        <Typography className={classes.notes}>{data.notes}</Typography>
+                        <Typography className={classes.mainNote}>"{data.notes}"</Typography>
                     </Grid>
                 </Grid>
             </div>

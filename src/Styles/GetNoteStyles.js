@@ -24,7 +24,16 @@ const useStyles = makeStyles((theme) => ({
     notes: {
         fontSize: theme.spacing(3),
         fontFamily: 'Roboto Mono',
-        fontWeight: '650',
+        fontWeight: '550',
+        fontStyle: 'normal',
+        [theme.breakpoints.down('xs')]: {
+            fontSize: theme.spacing(2)
+        }
+    },
+    mainNote: {
+        fontSize: theme.spacing(3),
+        fontFamily: 'Roboto Mono',
+        fontWeight: '400',
         fontStyle: 'normal',
         [theme.breakpoints.down('xs')]: {
             fontSize: theme.spacing(2)
