@@ -118,7 +118,7 @@ const CreateNote = () => {
                 </Grid>
                 <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                     {success ? (<Alert onClose={handleClose} severity='success'>
-                        Your Unique URL is http://localhost:3000/{url}
+                        Your Unique URL is https://notify-backend-swpril.herokuapp.com/{url}
                     </Alert>):(<Alert severity='error' onClose={handleClose}>Some Error Occured!</Alert>)}
 
                 </Snackbar>
