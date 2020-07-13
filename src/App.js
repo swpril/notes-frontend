@@ -8,6 +8,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' render={() => <CreateNote />} />
         <Route exact path='/:id' render={(props) => <GetNote {...props} />} />
+        <Route exact render={() => <div><h1>404 Page</h1></div>} />
       </Switch>
     </div>
   );
