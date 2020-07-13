@@ -23,10 +23,6 @@ const CreateNote = () => {
     const [success, setSuccess] = useState(false);
     const [url, setUrl] = useState(null);
 
-    const handleClick = () => {
-        setOpen(true);
-    };
-
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
             return;
@@ -122,7 +118,7 @@ const CreateNote = () => {
                 </Grid>
                 <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                     {success ? (<Alert onClose={handleClose} severity='success'>
-                        Your Unique URL is http://localhost:8000/{url}
+                        Your Unique URL is http://localhost:3000/{url}
                     </Alert>):(<Alert severity='error' onClose={handleClose}>Some Error Occured!</Alert>)}
 
                 </Snackbar>

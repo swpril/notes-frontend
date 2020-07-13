@@ -42,44 +42,6 @@ const useStyles = makeStyles((theme) => ({
         textTransform: 'none',
         color: '#E8EDF0'
     },
-    fileGrid: {
-        margin: theme.spacing(1),
-        padding: theme.spacing(1),
-    },
-    outletImage: {
-        fontFamily: 'Roboto Mono',
-        fontWeight: '600',
-    },
-    uploadButton: {
-        borderRadius: theme.spacing(2),
-        fontSize: theme.spacing(1.5),
-        textTransform: 'none',
-        fontFamily: 'Roboto Mono',
-        '&.MuiButton-root': {
-            backgroundColor: '#D7022B'
-        },
-        color: '#E8EDF0',
-        marginTop: theme.spacing(1)
-    },
-
-    errorMessage: {
-        color: '#D7022B',
-        fontFamily: 'Roboto Mono',
-        fontSize: theme.spacing(1.5),
-    },
-    selectDiv: {
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center'
-    },
-    options: {
-        fontFamily: 'Roboto Mono',
-        fontSize: theme.spacing(2.5),
-        [theme.breakpoints.down('xs')]: {
-            fontSize: theme.spacing(2),
-        }
-    },
-
 }));
 
 export default useStyles;
