@@ -1,9 +1,9 @@
 import React from 'react';
-import NavBar from './componets/NavBar';
+import CreateNote from './componets/CreateNote';
 const App = () => {
   return (
     <div>
-      <NavBar />
+      <CreateNote />
     </div>
   );
 }
