@@ -53,7 +53,7 @@ const CreateNote = () => {
                                 validationSchema={Validation}
                                 onSubmit={async (values) => {
                                     try {
-                                        const response = await axios.post('http://localhost:8000/note/new', values);
+                                        const response = await axios.post('https://notify-backend-swpril.herokuapp.com/note/new', values);
                                         setSuccess(true);
                                         setUrl(response.data);
                                         setOpen(true);

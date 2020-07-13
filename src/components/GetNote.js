@@ -13,7 +13,7 @@ const GetNote = () => {
     useEffect(() => {
         const getNote = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/note/${id}`);
+                const response = await axios.get(`https://notify-backend-swpril.herokuapp.com/note/${id}`);
                 setData(response.data);
             } catch (e) {
                 setError('No Note found')
